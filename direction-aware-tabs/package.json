@@ -2,6 +2,7 @@
 	"name": "direction-aware-tabs",
 	"version": "0.1.0",
 	"private": true,
+	"author": "Edanrell",
 	"scripts": {
 		"start:dev": "next dev --turbopack",
 		"start:build": "next build",
