@@ -1,6 +1,6 @@
 "use client";
 
-import { FC, useEffect, useRef, useState } from "react";
+import { Dispatch, FC, SetStateAction, useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useOnClickOutside } from "usehooks-ts";
 
@@ -16,7 +16,7 @@ type Card = {
 
 type CardProps = {
 	card: Card;
-	setActiveCard: any;
+	setActiveCard: (card: Card) => void;
 };
 
 const Card: FC<CardProps> = ({ card, setActiveCard }) => {
@@ -115,7 +115,7 @@ type ActiveCard = {
 
 type ActiveCardProps = {
 	activeCard: ActiveCard;
-	setActiveCard: any;
+	setActiveCard: Dispatch<SetStateAction<Card | null>>;
 };
 
 const ActiveCard: FC<ActiveCardProps> = ({ activeCard, setActiveCard }) => {
@@ -220,7 +220,7 @@ const ActiveCard: FC<ActiveCardProps> = ({ activeCard, setActiveCard }) => {
 };
 
 export default function StyledWithoutDrag() {
-	const [activeCard, setActiveCard] = useState(null);
+	const [activeCard, setActiveCard] = useState<Card | null>(null);
 
 	useEffect(() => {
 		function onKeyDown(event: KeyboardEvent) {
