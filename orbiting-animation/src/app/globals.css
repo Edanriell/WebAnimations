@@ -1,0 +1,63 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+	--background: #ffffff;
+	--foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--background: #0a0a0a;
+		--foreground: #ededed;
+	}
+}
+
+body {
+	color: var(--foreground);
+	background: var(--background);
+	font-family: Arial, Helvetica, sans-serif;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	height: 100vh;
+}
+
+.circle {
+	height: 96px;
+	width: 96px;
+	border-radius: 50%;
+	background: #21201C;
+}
+
+.orbitingCircle {
+	width: 32px;
+	height: 32px;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	border-radius: 50%;
+	background: #FAD757;
+}
+
+.wrapper {
+	transform-style: preserve-3d;
+	perspective: 500px;
+}
+
+.orbitingCircle {
+	animation: orbit 6s linear;
+	animation-iteration-count: infinite;
+}
+
+@keyframes orbit {
+	from {
+		transform: translate(-50%, -50%) rotateY(0deg) translateZ(72px) rotateY(360deg);
+	}
+	to {
+		transform: translate(-50%, -50%) rotateY(360deg) translateZ(72px) rotateY(0deg);
+	}
+}
