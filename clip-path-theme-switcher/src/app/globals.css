@@ -1,0 +1,50 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+	--background: #ffffff;
+	--foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--background: #0a0a0a;
+		--foreground: #ededed;
+	}
+}
+
+body {
+	color: var(--foreground);
+	background: var(--background);
+	font-family: Arial, Helvetica, sans-serif;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	height: 100vh;
+}
+
+@keyframes reveal {
+	0% {
+		clip-path: inset(0 0 100% 0);
+	}
+	100% {
+		clip-path: inset(0 0 0% 0);
+	}
+}
+
+.theme-light-animate {
+	clip-path: inset(0 0 100% 0);
+	background-color: white;
+	color: black;
+	animation: reveal 1s forwards cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+.theme-dark-animate {
+	clip-path: inset(0 0 100% 0);
+	background-color: #0D0C0C;
+	color: white;
+	animation: reveal 1s forwards cubic-bezier(0.77, 0, 0.175, 1);
+}
+
